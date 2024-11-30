@@ -27,7 +27,7 @@ The **Student Management System** is a web-based application designed to streaml
 - **JavaScript**  
 
 ### Database  
-- Initially **SQLite**, now migrated to **MySQL** (Database Name: `Student Management`).  
+- Initially **SQLite**, now migrated to **MySQL** (Database Name: `sql_edutrack`).  
 
 ---
 
