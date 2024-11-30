@@ -90,7 +90,7 @@ $ git clone https://github.com/David2K20/Django-Student-Management-System.git
 #### Then, Enter the project
 
 ```bash
-$ cd Django-Student-Mangement-System
+$ cd Django-Student-Management-System
 ```
 
 ### 4. Configure the Database
