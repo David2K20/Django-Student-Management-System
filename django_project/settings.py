@@ -92,8 +92,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sql_edutrack',  # Your database name
-        'USER': 'edutrack',      # Your MySQL username
-        'PASSWORD': '1234567$',  # Your MySQL password
+        'USER': '######',      # Your MySQL username
+        'PASSWORD': '######',  # Your MySQL password
         'HOST': 'localhost',     # Or the IP address where MySQL is hosted
         'PORT': '3306',          # Default MySQL port
     }
