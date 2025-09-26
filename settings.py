@@ -96,10 +96,10 @@ DATABASES = {
         'PASSWORD': 'AVNS_w7crSywcVW3KILn1uOd',  # Your MySQL password
         'HOST': 'mysql-13402d28-oreoluwadavid08-780a.g.aivencloud.com',     # Or the IP address where MySQL is hosted
         'PORT': '15819',
-        "OPTIONS": {
-            "sslmode": "require",  # or 'verify-ca', 'verify-full'
-            # "channel_binding":"require"
-        },
+        # "OPTIONS": {
+        #     "sslmode": "require",  # or 'verify-ca', 'verify-full'
+        #     # "channel_binding":"require"
+        # },
        # Default MySQL port
     }
 }
