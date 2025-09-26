@@ -30,12 +30,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g&p0t33!2954##3$dm@n09y!=+&tja=-ch*e(v@85d=&97oj9+'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-g&p0t33!2954##3$dm@n09y!=+&tja=-ch*e(v@85d=&97oj9+')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
 
 
 # Application definition
@@ -55,12 +55,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -95,19 +95,19 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Database configuration - Always use individual environment variables for reliability
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'defaultdb',  # Your database name
-        'USER': 'avnadmin',      # Your MySQL username
-        'PASSWORD': 'AVNS_w7crSywcVW3KILn1uOd',  # Your MySQL password
-        'HOST': 'mysql-13402d28-oreoluwadavid08-780a.g.aivencloud.com',     # Or the IP address where MySQL is hosted
-        'PORT': '15819',
-        # "OPTIONS": {
-        #     "sslmode": "require",  # or 'verify-ca', 'verify-full'
-        #     # "channel_binding":"require"
-        # },    
-       # Default MySQL port
+        'NAME': os.environ.get('DB_NAME', 'defaultdb'),
+        'USER': os.environ.get('DB_USER', 'avnadmin'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'AVNS_w7crSywcVW3KILn1uOd'),
+        'HOST': os.environ.get('DB_HOST', 'mysql-13402d28-oreoluwadavid08-780a.g.aivencloud.com'),
+        'PORT': os.environ.get('DB_PORT', '15819'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
